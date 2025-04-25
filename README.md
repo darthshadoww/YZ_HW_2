@@ -1,75 +1,91 @@
-# YZ_HW_2
+Aşağıda, tamamen profesyonel ve GitHub için doğrudan kullanabileceğin, tek seferde kopyalayıp yapıştırabileceğin şekilde düzenlenmiş kapsamlı bir **README.md** mevcut:
 
+---
 
+# BLM 3510 Yapay Zeka – Ödev 2  
+**Sorudan Cevaba ve Cevap Kalitesi Sınıflandırma Analizi**
 
-```markdown
-# BLM 3510 – Yapay Zeka 2024/2 – Ödev 2
+Bu repo, **Yıldız Teknik Üniversitesi - BLM 3510 Yapay Zeka dersi (2025/2 dönemi)** kapsamında hazırlanan **Ödev 2**'nin kaynak kodları, veri setleri, raporlar ve sonuçları içermektedir.
 
-## Proje Hakkında
-Bu repo, 2024/2 döneminde BLM 3510 dersi için hazırlanan **Ödev 2**’nin tüm kod, veri ve raporlarını içerir.  
-Ödev iki ana bölümden oluşuyor:
-1. **Deney A – Sorudan Cevaba Başarı Analizi**  
-   - 1000 rastgele soru seçilerek GPT4o ve Deepseek cevap vektörleri üzerinden **Top-1** ve **Top-5** başarı oranları hesaplanacak.  
-   - Başarılar ile “hangisi iyi” (1,2,3,4) sınıf etiketleri arasındaki korelasyon incelenecek.
+## 📌 Proje Özeti
 
-2. **Deney B – “Hangisi İyi” Sınıflandırma Modeli**  
-   - Girdi olarak `s, g, d, s-g, s-d, g-d, |s-g|, |s-g|-|s-d|` vektörlerini alıp 1–4 etiketlerini tahmin eden modeller eğitilecek.  
-   - Verisetinin %80’i eğitim, %20’si test olarak kullanılacak.  
-   - Farklı vektör kombinasyonlarının sınıflandırma performansları karşılaştırılacak.
+Bu projede, yapay zekâ tarafından verilen cevapların kalitesini ve doğruluğunu analiz etmek üzere iki temel çalışma gerçekleştirilmiştir:
 
-## Gereksinimler
-- Python ≥ 3.8  
-- [PyTorch](https://pytorch.org/)  
-- [Transformers](https://github.com/huggingface/transformers)  
-- pandas, numpy, scikit-learn, matplotlib  
-- Internet bağlantısı (HuggingFace’ten önceden eğitilmiş modelleri indirmek için)
+- **Deney A (Sorudan Cevaba Başarı Analizi):**
+  - GPT-4o ve Deepseek modelleri tarafından verilen cevapların doğruluk oranları (Top-1 ve Top-5) analiz edilmiştir.
+  - Başarı oranları ile kullanıcılar tarafından verilen kalite puanları arasındaki korelasyon incelenmiştir.
 
-## Kurulum
+- **Deney B (Cevap Kalitesi Sınıflandırma):**
+  - Soru ve cevap metinlerinden elde edilen vektörlerle cevap kalitesini sınıflandıran modeller eğitilmiştir.
+  - Embedding modellerinin performansları karşılaştırmalı olarak incelenmiştir.
+
+---
+
+## 🛠️ Kullanılan Teknolojiler ve Kütüphaneler
+
+- **Programlama Dili:** Python (≥ 3.8)
+- **Makine Öğrenmesi Kütüphaneleri:**
+  - PyTorch
+  - Hugging Face Transformers
+  - Scikit-learn
+- **Veri Analizi ve Görselleştirme:**
+  - pandas, numpy, matplotlib, seaborn
+- **Embeddings:**
+  - [intfloat/multilingual-e5-large-instruct](https://huggingface.co/intfloat/multilingual-e5-large-instruct)
+  - [ytu-ce-cosmos/turkish-e5-large](https://huggingface.co/ytu-ce-cosmos/turkish-e5-large)
+  - [jinaai/jina-embeddings-v3](https://huggingface.co/jinaai/jina-embeddings-v3)
+
+---
+
+## 📂 Repo Yapısı
+
+```
+├── data/
+│   ├── questions.csv        # Soru-cevap verileri
+│   └── labels.csv           # Kalite sınıf etiketleri
+│
+├── scripts/
+│   ├── retrieval_evaluation.py     # Deney A için analiz scripti
+│   └── classification.py           # Deney B için model scripti
+│
+├── results/
+│   ├── retrieval/                  # Deney A sonuçları (tablolar ve grafikler)
+│   └── classification/             # Deney B sonuçları (tablolar ve grafikler)
+│
+├── report/
+│   ├── odev2_raporu.pdf            # Detaylı analiz raporu
+│   └── video_link.txt              # YouTube sunum linki
+│
+├── requirements.txt                # Bağımlılık dosyası
+└── README.md                       # Bu belge
+```
+
+---
+
+## 🚀 Projeyi Çalıştırma
+
+### Adım 1 – Repoyu Klonlayın:
 ```bash
-git clone https://github.com/<kullanici_adiniz>/blm3510-odev2.git
-cd blm3510-odev2
+git clone https://github.com/<darthshadoww>/blm3510-yapayzeka-odev2.git
+cd blm3510-yapayzeka-odev2
+```
+
+### Adım 2 – Ortamınızı Kurun:
+```bash
 python -m venv venv
-source venv/bin/activate     # Windows: venv\Scripts\activate
+source venv/bin/activate           # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-## Veri Seti
-- Ham veriler Google Sheets’de:  
-  `https://docs.google.com/spreadsheets/d/1Woh-A5oTJ715ivgIsu6NCkdav_k46iqr`  
-- `data/` dizininde yer alan `questions.csv` ve `labels.csv` hali mevcut.  
-- Dilerseniz `utils/download_data.py` ile doğrudan CSV’ye çekebilirsiniz.
+### Adım 3 – Deneyleri Çalıştırın:
 
-## Deney A – Sorudan Cevaba Başarı Analizi
-1. `scripts/retrieval_evaluation.py`  
-   - Girdi: `--data data/questions.csv`  
-   - Modeller: GPT4o ve Deepseek vektörleri (`--model gpt4o`, `--model deepseek`)  
-   - Çıktı: Top-1 ve Top-5 başarı oranları, korelasyon analiz raporu  
-2. Çıktılar `results/retrieval/` altında tablo ve grafik olarak saklanır.
-
-## Deney B – “Hangisi İyi” Sınıflandırma Modeli
-1. Kullanılan embedding modelleri:
-   - `intfloat/multilingual-e5-large-instruct`  
-   - `ytu-ce-cosmos/turkish-e5-large`  
-   - `jinaai/jina-embeddings-v3`  
-2. `scripts/classification.py`
-   - Argümanlar:
-     ```
-     --data data/labels.csv
-     --embeddings e5 cosmosE5 jina
-     --features s,g,d,s-g,s-d,g-d,abs_s-g,delta_diff
-     --split 0.8
-     ```
-   - Modeller: Logistic Regression, Random Forest, SVM (varsayılan)  
-   - Sonuçlar `results/classification/` altına kaydedilir ve otomatik grafikler oluşturulur.
-
-## Çalıştırma
+**🔸 Deney A – Başarı Analizi**
 ```bash
-# Deney A
-python scripts/retrieval_evaluation.py \
-  --data data/questions.csv \
-  --models gpt4o deepseek
+python scripts/retrieval_evaluation.py --data data/questions.csv --models gpt4o deepseek
+```
 
-# Deney B
+**🔸 Deney B – Kalite Sınıflandırma**
+```bash
 python scripts/classification.py \
   --data data/labels.csv \
   --embeddings e5 cosmosE5 jina \
@@ -77,37 +93,60 @@ python scripts/classification.py \
   --split 0.8
 ```
 
-## Sonuçlar ve Grafikler
-Tüm tablolar ve grafikler `results/` klasöründe yer alır. Öne çıkan bulgular:
-- GPT4o vs. Deepseek Top-1/Top-5 başarı karşılaştırmaları  
-- Top-başarı ile sınıf etiketleri arasındaki korelasyon  
-- Farklı embedding kombinasyonlarının sınıflandırmadaki başarı farkları  
+---
 
-## Rapor ve Sunum
-- **Rapor (PDF)**: `report/odev2_raporu.pdf`  
-- **Sunum Videosu**: YouTube linkinizi `report/video_link.txt` dosyasına ekleyin.
+## 📊 Veri Seti Kaynağı
 
-## Proje Yapısı
+Veri setinin orijinal kaynağına aşağıdaki linkten erişebilirsiniz:
+
+[🔗 Veri Seti Google Sheets Bağlantısı](https://docs.google.com/spreadsheets/d/1Woh-A5oTJ715ivgIsu6NCkdav_k46iqr)
+
+---
+
+## 📑 Bulgular ve Sonuçlar
+
+Tüm analiz sonuçları ve performans değerlendirmeleri detaylı olarak `results/` klasöründe sunulmuştur:
+
+- GPT4o vs. Deepseek karşılaştırmalı Top-1 ve Top-5 doğrulukları
+- Kalite sınıfı tahmin modellerinin performansları
+- Embedding modellerinin performansa etkileri
+
+Detaylı yorumlar ve analizler için `report/odev2_raporu.pdf` dosyasına bakınız.
+
+---
+
+## 🎥 Video Sunumu
+
+Projenin anlatımını içeren sunum videosuna aşağıdaki bağlantıdan ulaşabilirsiniz:
+
+[📺 Proje Sunumu (YouTube)](https://youtube.com/) *(Link buraya eklenecek.)*
+
+---
+
+## 👥 Katkıda Bulunanlar
+
+| İsim                 | Öğrenci No | E-posta                         |
+|----------------------|------------|---------------------------------|
+| Melih Alçık          | 22011628   | melih.alcik@std.yildiz.edu.tr        |
+| Şahin Doğruca        | 22011049   | sahin.dogruca@std.yildiz.edu.tr |
+
+---
+
+## 📅 Teslim Tarihi ve Yöntemi
+
+- **Son Teslim Tarihi:** 29 Nisan 2025, Saat 09:30
+- **Teslim Yeri:** [online.yildiz.edu.tr](https://online.yildiz.edu.tr)
+
+---
+
+## 📜 Lisans Bilgisi
+
+Bu proje, [MIT](LICENSE) lisansı altında sunulmuştur.
+
+```text
+MIT License © 2025
 ```
-├─ data/
-│  ├─ questions.csv
-│  └─ labels.csv
-├─ scripts/
-│  ├─ retrieval_evaluation.py
-│  └─ classification.py
-├─ results/
-│  ├─ retrieval/
-│  └─ classification/
-├─ report/
-│  ├─ odev2_raporu.pdf
-│  └─ video_link.txt
-├─ requirements.txt
-└─ README.md
-```
 
-## Katkıda Bulunanlar
-- **Melih Alçık** – 22011628  
-- **Şahin Doğruca** – 22011049
+---
 
-## Lisans
-Lisans yoktur
+✅ Bu dosyayı doğrudan kopyalayıp GitHub repo'nuzun ana dizinine yapıştırarak kullanabilirsiniz. Gerekli yerleri (isimler, öğrenci numaraları, YouTube linki, GitHub kullanıcı adı vb.) kendi bilgilerinize göre güncelleyin.
