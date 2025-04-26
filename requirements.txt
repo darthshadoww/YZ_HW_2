@@ -1,0 +1,6 @@
+numpy
+pandas
+transformers
+sentence-transformers
+torch
+faiss-cpu
