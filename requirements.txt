@@ -3,4 +3,5 @@ pandas
 transformers
 sentence-transformers
 torch
-faiss-cpu
+annoy
+matplotlib
