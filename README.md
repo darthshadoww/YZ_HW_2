@@ -2,7 +2,8 @@ Aşağıda, tamamen profesyonel ve GitHub için doğrudan kullanabileceğin, tek
 
 ---
 
-# BLM 3510 Yapay Zeka – Ödev 2  
+# BLM 3510 Yapay Zeka – Ödev 2
+
 **Sorudan Cevaba ve Cevap Kalitesi Sınıflandırma Analizi**
 
 Bu repo, **Yıldız Teknik Üniversitesi - BLM 3510 Yapay Zeka dersi (2025/2 dönemi)** kapsamında hazırlanan **Ödev 2**'nin kaynak kodları, veri setleri, raporlar ve sonuçları içermektedir.
@@ -12,6 +13,7 @@ Bu repo, **Yıldız Teknik Üniversitesi - BLM 3510 Yapay Zeka dersi (2025/2 dö
 Bu projede, yapay zekâ tarafından verilen cevapların kalitesini ve doğruluğunu analiz etmek üzere iki temel çalışma gerçekleştirilmiştir:
 
 - **Deney A (Sorudan Cevaba Başarı Analizi):**
+
   - GPT-4o ve Deepseek modelleri tarafından verilen cevapların doğruluk oranları (Top-1 ve Top-5) analiz edilmiştir.
   - Başarı oranları ile kullanıcılar tarafından verilen kalite puanları arasındaki korelasyon incelenmiştir.
 
@@ -65,12 +67,14 @@ Bu projede, yapay zekâ tarafından verilen cevapların kalitesini ve doğruluğ
 ## 🚀 Projeyi Çalıştırma
 
 ### Adım 1 – Repoyu Klonlayın:
+
 ```bash
 git clone https://github.com/<darthshadoww>/blm3510-yapayzeka-odev2.git
 cd blm3510-yapayzeka-odev2
 ```
 
 ### Adım 2 – Ortamınızı Kurun:
+
 ```bash
 python -m venv venv
 source venv/bin/activate           # Windows: venv\Scripts\activate
@@ -80,11 +84,13 @@ pip install -r requirements.txt
 ### Adım 3 – Deneyleri Çalıştırın:
 
 **🔸 Deney A – Başarı Analizi**
+
 ```bash
 python scripts/retrieval_evaluation.py --data data/questions.csv --models gpt4o deepseek
 ```
 
 **🔸 Deney B – Kalite Sınıflandırma**
+
 ```bash
 python scripts/classification.py \
   --data data/labels.csv \
@@ -119,16 +125,16 @@ Detaylı yorumlar ve analizler için `report/odev2_raporu.pdf` dosyasına bakın
 
 Projenin anlatımını içeren sunum videosuna aşağıdaki bağlantıdan ulaşabilirsiniz:
 
-[📺 Proje Sunumu (YouTube)](https://youtube.com/) *(Link buraya eklenecek.)*
+[📺 Proje Sunumu (YouTube)](https://youtube.com/) _(Link buraya eklenecek.)_
 
 ---
 
 ## 👥 Katkıda Bulunanlar
 
-| İsim                 | Öğrenci No | E-posta                         |
-|----------------------|------------|---------------------------------|
-| Melih Alçık          | 22011628   | melih.alcik@std.yildiz.edu.tr        |
-| Şahin Doğruca        | 22011049   | sahin.dogruca@std.yildiz.edu.tr |
+| İsim          | Öğrenci No | E-posta                         |
+| ------------- | ---------- | ------------------------------- |
+| Melih Alçık   | 22011628   | melih.alcik@std.yildiz.edu.tr   |
+| Şahin Doğruca | 22011049   | sahin.dogruca@std.yildiz.edu.tr |
 
 ---
 
@@ -146,7 +152,3 @@ Bu proje, [MIT](LICENSE) lisansı altında sunulmuştur.
 ```text
 MIT License © 2025
 ```
-
----
-
-✅ Bu dosyayı doğrudan kopyalayıp GitHub repo'nuzun ana dizinine yapıştırarak kullanabilirsiniz. Gerekli yerleri (isimler, öğrenci numaraları, YouTube linki, GitHub kullanıcı adı vb.) kendi bilgilerinize göre güncelleyin.
