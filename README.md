@@ -1,7 +1,3 @@
-Aşağıda, tamamen profesyonel ve GitHub için doğrudan kullanabileceğin, tek seferde kopyalayıp yapıştırabileceğin şekilde düzenlenmiş kapsamlı bir **README.md** mevcut:
-
----
-
 # BLM 3510 Yapay Zeka – Ödev 2
 
 **Sorudan Cevaba ve Cevap Kalitesi Sınıflandırma Analizi**
